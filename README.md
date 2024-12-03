@@ -40,4 +40,4 @@
 
 ### Resources 
 
-* 
+* [How to apply Apollo Server to the Express server as middleware](https://www.apollographql.com/docs/apollo-server/api/express-middleware)
