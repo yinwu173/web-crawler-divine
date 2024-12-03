@@ -53,7 +53,7 @@ const resolvers = {
 
                 return updatedUser;
             }
-            throw new AuthenticationError('Log in please.');
+            throw AuthenticationError('Log in please.');
         },
         removeBook: async (parent, { bookId }, context) => {
             if (context.user) {
@@ -65,7 +65,7 @@ const resolvers = {
 
                 return updatedUser;
             }
-            throw new AuthenticationError('Log in please.');
+            throw AuthenticationError('Log in please.');
         },
     }
 };
