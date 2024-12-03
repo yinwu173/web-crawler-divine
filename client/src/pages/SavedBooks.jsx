@@ -7,12 +7,17 @@ import {
   Col
 } from 'react-bootstrap';
 
-import { getMe, deleteBook } from '../utils/API';
+// use the useQuery() Hook to execute the GET_ME query on load and save it to a variable named userData
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ME } from '../utils/mutations';
+// Use the useMutation() Hook to execute the REMOVE_BOOK mutation in the handleDeleteBook() function instead of the deleteBook() function that's imported from API file.
+import { REMOVE_BOOK } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  const [userData, setUserData] = useState({});
+  const { data } = useQuery(GET_ME);
+  const [ removeBook ] = useMutation(REMOVE_BOOK);
 
   // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
